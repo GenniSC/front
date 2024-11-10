@@ -4,11 +4,12 @@ import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 //----------------------------------------------------------------------
-const HomePage = lazy(() => import("../pages/home/home"));
 
+const HomePage = lazy(() => import("../pages/home"));
 const SignInPage = lazy(() => import("../pages/login"));
 const SignUpPage = lazy(() => import("../pages/cadastro"));
 const Page404 = lazy(() => import("../pages/not-found"));
+const PerFilPage = lazy(() => import("../pages/perfil"));
 
 //----------------------------------------------------------------------
 const renderFallback = (
@@ -40,9 +41,13 @@ export function Router() {
       ),
       children: [
         {
-          path: "/",
+          path: "/home",
           element: <HomePage />,
         },
+        {
+          path: "perfil",
+          element: <PerFilPage />,
+        }
       ],
     },
     {

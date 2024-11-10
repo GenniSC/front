@@ -48,14 +48,12 @@ export const authorize = async (email: string, password: string): Promise<IAuthR
 // Serviço para alterar senha
 export const changePassword = async (
   userId: string,
-  oldPassword: string,
   newPassword: string,
   confirmPassword: string
 ) => {
   try {
     const payload = {
       user_id: userId,
-      old_password: oldPassword,
       new_password: newPassword,
       confirm_password: confirmPassword,
     };

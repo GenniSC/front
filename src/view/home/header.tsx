@@ -1,7 +1,8 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link, Typography, IconButton } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
 import { Logo } from "../../components/logo";
 
-export function Header() {
+export function Header({ showProfileButton = true }) {
   return (
     <Box
       component="header"
@@ -33,14 +34,19 @@ export function Header() {
           </Link>
         </Box>
 
-        {/* Links */}
+        {/* Links e IconButton de Perfil */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <Link href="/about" underline="hover" color="inherit">
+          <Link href="/home" underline="hover" color="inherit">
             <Typography variant="body1">About</Typography>
           </Link>
-          <Link href="/contact" underline="hover" color="inherit">
+          <Link href="/home" underline="hover" color="inherit">
             <Typography variant="body1">Contact</Typography>
           </Link>
+          {showProfileButton && (
+            <IconButton href="/perfil" color="inherit">
+              <AccountCircle />
+            </IconButton>
+          )}
         </Box>
       </Box>
     </Box>
